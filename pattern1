@@ -1,0 +1,57 @@
+/*
+1       2       3       4       5                                                             
+16      17      18      19      6                                                             
+15      24      25      20      7                                                             
+14      23      22      21      8                                                             
+13      12      11      10      9   
+*/
+//////////////////////////////////////////////////////////////////
+#include<stdio.h>
+void main()
+{
+    puts("enter n");
+    int n;
+    scanf("%d",&n);
+    int arr[n][n];
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            arr[i][j]=0;
+
+    int k1=(n+1)/2,k=1;
+    int l=0,h=n-1;
+    int n1=1;
+    while(k<=k1)
+    {
+        for(int i=l;i<=h;i++)
+            {
+                arr[l][i]=n1;
+                n1++;
+            }
+        for(int i=l+1;i<=h;i++)
+            {
+                arr[i][h]=n1;
+                n1++;
+            }
+        for(int i=h-1;i>=l;i--)
+            {
+                arr[h][i]=n1;
+                n1++;
+            }
+        for(int i=h-1;i>=l+1;i--)
+            {
+                arr[i][l]=n1;
+                n1++;
+            }
+        l++;
+        h--;
+    k++;    
+    }
+    
+for(int i=0;i<n;i++)
+        {
+        for(int j=0;j<n;j++)
+            printf("%d\t\t",arr[i][j]);    
+        printf("\n");
+        }
+            
+        }
